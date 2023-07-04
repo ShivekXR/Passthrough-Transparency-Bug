@@ -6,12 +6,15 @@ Shader "DAddis/UnlitTransparent"
     }
     SubShader
     {
-        Tags { "RenderType"="Transparent" }
+        Tags
+        {
+            "RenderType"="Transparent"
+            "Queue"="Transparent"
+        }
         LOD 100
 
-        Blend SrcAlpha OneMinusSrcAlpha, One One
-        ZTest LEqual
-        ZWrite On
+		Blend SrcAlpha OneMinusSrcAlpha, SrcAlpha DstAlpha
+        ZWrite Off
 
         Pass
         {
